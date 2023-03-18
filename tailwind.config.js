@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  important: true,
+
   content: [
     './src/pages/**/*.{js,jsx,ts,tsx}',
     './src/components/**/*.{js,jsx,ts,tsx}',
@@ -8,7 +10,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      header: '530px',
+      header: '560px',
     },
 
     colors: {
@@ -27,12 +29,19 @@ module.exports = {
       inter: ['Inter', 'sans-serif'],
     },
 
+    fontSize: {
+      normal: '15px',
+      'lg-1': '18px',
+    },
+
     spacing: {
       0: '0px',
       16: '16px',
       24: '24px',
+      32: '32px',
       40: '40px',
       48: '48px',
+      96: '96px',
     },
 
     extend: {},

@@ -12,5 +12,6 @@
   html {
     font-family: 'inter', sans-serif;
     font-size: 15px;
+    color: hsl(240, 100%, 5%);
   }
 }

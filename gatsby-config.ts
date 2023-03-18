@@ -13,6 +13,8 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
 
   plugins: [
+    'gatsby-plugin-layout',
+
     'gatsby-plugin-postcss',
 
     'gatsby-plugin-image',

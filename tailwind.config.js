@@ -4,6 +4,7 @@ module.exports = {
   content: [
     './src/pages/**/*.{js,jsx,ts,tsx}',
     './src/components/**/*.{js,jsx,ts,tsx}',
+    './src/layouts/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     colors: {
@@ -22,7 +23,13 @@ module.exports = {
       inter: ['Inter', 'sans-serif'],
     },
 
+    spacing: {
+      16: '16px',
+      24: '24px',
+      48: '48px',
+    },
+
     extend: {},
   },
-  plugins: [],
+  plugins: [require('prettier-plugin-tailwindcss')],
 };

@@ -7,6 +7,10 @@ module.exports = {
     './src/layouts/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    screens: {
+      header: '530px',
+    },
+
     colors: {
       // Primary colors
       'soft-orange': 'hsl(35, 77%, 62%)',
@@ -24,8 +28,10 @@ module.exports = {
     },
 
     spacing: {
+      0: '0px',
       16: '16px',
       24: '24px',
+      40: '40px',
       48: '48px',
     },
 

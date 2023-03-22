@@ -18,7 +18,7 @@ const navLinks: {
 ];
 
 export default function Layout({ children }: layoutProps) {
-  const [mobileNavOpen, setmobileNavOpen] = useState<boolean>(true);
+  const [mobileNavOpen, setmobileNavOpen] = useState<boolean>(false);
   const openMenu = (): void => setmobileNavOpen(true);
   const closeMenu = (): void => setmobileNavOpen(false);
 
@@ -47,7 +47,7 @@ export default function Layout({ children }: layoutProps) {
                 <Link
                   to={link}
                   key={index}
-                  className='!important mb-32 text-lg-1 capitalize last:mb-0 hover:text-soft-red'
+                  className='!important semi-bold mb-32 text-lg-1 capitalize last:mb-0 hover:text-soft-red'
                 >
                   {title}
                 </Link>

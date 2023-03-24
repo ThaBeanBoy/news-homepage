@@ -2,33 +2,51 @@ import React from 'react';
 
 type typeProps = {
   children: string;
-  style?: string;
+  className?: string;
 };
 
-export function H1({ children, style }: typeProps): JSX.Element {
+export function H1({ children, className }: typeProps): JSX.Element {
   return (
-    <h1 className={`text-[40px] font-extrabold leading-[40px] ${style}`}>
+    <h1
+      className={`text-[40px] font-extrabold leading-[40px] text-very-dark-blue ${className}`}
+    >
       {children}
     </h1>
   );
 }
 
-export function H2({ children, style }: typeProps): JSX.Element {
-  return <h2 className={`text-[32px] ${style}`}>{children}</h2>;
+export function H2({ children, className }: typeProps): JSX.Element {
+  return (
+    <h2 className={`text-[32px] text-very-dark-blue ${className}`}>
+      {children}
+    </h2>
+  );
 }
 
-export function H3({ children, style }: typeProps): JSX.Element {
-  return <h2 className={`text-[20px] ${style}`}>{children}</h2>;
+export function H3({ children, className }: typeProps): JSX.Element {
+  return (
+    <h2 className={`text-[20px] text-very-dark-blue ${className}`}>
+      {children}
+    </h2>
+  );
 }
 
-export function H4({ children, style }: typeProps): JSX.Element {
-  return <h2 className={`text-[18px] ${style}`}>{children}</h2>;
+export function H4({ children, className }: typeProps): JSX.Element {
+  return (
+    <h2 className={`text-[18px] text-very-dark-blue ${className}`}>
+      {children}
+    </h2>
+  );
 }
 
-export function P({ children, style }: typeProps): JSX.Element {
-  return <p className={`leading-[24px] ${style}`}>{children}</p>;
+export function P({ children, className }: typeProps): JSX.Element {
+  return (
+    <p className={`leading-[24px] text-very-dark-blue ${className}`}>
+      {children}
+    </p>
+  );
 }
 
-export function SM({ children, style }: typeProps): JSX.Element {
-  return <p className={`${style}`}>{children}</p>;
+export function SM({ children, className }: typeProps): JSX.Element {
+  return <p className={`text-very-dark-blue ${className}`}>{children}</p>;
 }

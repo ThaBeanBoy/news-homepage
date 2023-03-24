@@ -22,6 +22,9 @@ export default function Layout({ children }: layoutProps) {
   const openMenu = (): void => setmobileNavOpen(true);
   const closeMenu = (): void => setmobileNavOpen(false);
 
+  const navLinksStyles: string =
+    'important semi-bold text-lg-1  capitalize hover:text-soft-red';
+
   return (
     <div id='wrapper' className='min-h-screen w-screen bg-off-white'>
       {mobileNavOpen && (
@@ -47,7 +50,7 @@ export default function Layout({ children }: layoutProps) {
                 <Link
                   to={link}
                   key={index}
-                  className='!important semi-bold mb-32 text-lg-1 capitalize last:mb-0 hover:text-soft-red'
+                  className={`${navLinksStyles} mb-32 last:mb-0`}
                 >
                   {title}
                 </Link>
@@ -75,7 +78,7 @@ export default function Layout({ children }: layoutProps) {
               <Link
                 to={link}
                 key={index}
-                className='mr-40 text-lg-1 capitalize last:mr-0 hover:text-soft-red'
+                className={`${navLinksStyles} mr-40 text-[grey] last:mr-0`}
               >
                 {title}
               </Link>

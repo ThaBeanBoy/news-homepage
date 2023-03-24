@@ -26,7 +26,7 @@ export default function Layout({ children }: layoutProps) {
     'important semi-bold text-lg-1  capitalize hover:text-soft-red';
 
   return (
-    <div id='wrapper' className='min-h-screen w-screen bg-off-white'>
+    <div id='wrapper' className='z-50 min-h-screen w-screen bg-off-white'>
       {mobileNavOpen && (
         <div
           id='mobile-nav-wrapper'
@@ -61,7 +61,7 @@ export default function Layout({ children }: layoutProps) {
       )}
 
       <div className='mx-auto h-full w-full max-w-[1110px] px-16'>
-        <header className='sticky top-0 flex w-full justify-between py-24'>
+        <header className='sticky top-0 z-40 flex w-full justify-between border-b-2 border-b-grayish-blue bg-off-white py-24'>
           <Link to='./'>
             <img src='/logo.svg' alt='logo' className='w-48' />
           </Link>

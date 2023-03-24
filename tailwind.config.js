@@ -36,6 +36,8 @@ module.exports = {
 
     spacing: {
       0: '0px',
+      4: '4px',
+      8: '8px',
       16: '16px',
       24: '24px',
       28: '28px',
@@ -43,6 +45,7 @@ module.exports = {
       40: '40px',
       48: '48px',
       56: '56px',
+      64: '64px',
       96: '96px',
     },
 

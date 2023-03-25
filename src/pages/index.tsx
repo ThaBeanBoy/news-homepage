@@ -87,7 +87,7 @@ export default function IndexPage({ data }: any) {
 
             <Link
               to={createHyperLink(mainArticle, 'articles')}
-              className='mt-28 block bg-soft-red p-32 py-16'
+              className='mt-28 inline-block bg-soft-red px-32 py-16'
             >
               <SM className='uppercase tracking-[4.5px] text-off-white'>
                 Read more

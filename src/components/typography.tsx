@@ -18,11 +18,11 @@ export function H2({ children, className }: typeProps): JSX.Element {
 }
 
 export function H3({ children, className }: typeProps): JSX.Element {
-  return <h2 className={`text-[20px] ${className}`}>{children}</h2>;
+  return <h3 className={`text-[20px] ${className}`}>{children}</h3>;
 }
 
 export function H4({ children, className }: typeProps): JSX.Element {
-  return <h2 className={`text-[18px] ${className}`}>{children}</h2>;
+  return <h4 className={`text-[18px] ${className}`}>{children}</h4>;
 }
 
 export function P({ children, className }: typeProps): JSX.Element {

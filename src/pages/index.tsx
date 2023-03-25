@@ -1,21 +1,27 @@
 import * as React from 'react';
-import { HeadFC, Link } from 'gatsby';
+import { graphql, HeadFC, Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { H1, H2, H3, P, SM } from '../components/typography';
+import { H1, H2, H3, H4, P, SM } from '../components/typography';
 
 const createHyperLink = (title: string, prefix?: string): string => {
   const url: string = title.replace(/ /g, '-').toLowerCase();
   return prefix !== undefined ? `${prefix}/${url}` : url;
 };
 
-const mainArticle = 'The Bright Future of Web 3.0';
-
-const newArticles: {
+type article = {
   title: string;
   shortDescription: string;
-}[] = [
+  image?: {
+    src: string;
+    alt: string;
+  };
+};
+const mainArticle = 'The Bright Future of Web 3.0';
+
+const newArticles: article[] = [
   {
     title: 'Hydrogen VS Electric Cars',
     shortDescription: 'Will hydrogen-fueled cars ever catch up to EVs?',
@@ -32,7 +38,36 @@ const newArticles: {
   },
 ];
 
-export default function IndexPage() {
+const articles: article[] = [
+  {
+    title: 'Reviving Retro PCs',
+    shortDescription: 'What happens when old PCs are given modern upgrades?',
+    image: {
+      src: 'image-retro-pcs',
+      alt: 'retro pc',
+    },
+  },
+  {
+    title: 'Top 10 Laptops of 2022',
+    shortDescription: 'Our best picks for various needs and budgets.',
+    image: {
+      src: 'image-top-laptops',
+      alt: 'top laptops',
+    },
+  },
+  {
+    title: 'The Growth of Gaming',
+    shortDescription: 'How the pandemic has sparked fresh opportunities.',
+    image: {
+      src: 'image-gaming-growth',
+      alt: 'gaming growth',
+    },
+  },
+];
+
+export default function IndexPage({ data }: any) {
+  const images: any[] = data.allFile.nodes;
+
   return (
     <main className='bg-off-white'>
       <div id='top' className='mt-32 flex flex-col'>
@@ -82,9 +117,50 @@ export default function IndexPage() {
           </ul>
         </div>
       </div>
-      <div id='articles'></div>
+
+      <ul id='articles' className='my-64 w-full'>
+        {articles.map(({ title, shortDescription, image }, index) => {
+          const img = images.filter((img) => img.name === image?.src)[0]
+            .childrenImageSharp[0].fixed;
+
+          return (
+            <li key={index} className='mb-32 w-full last:mb-0'>
+              <Link
+                to={createHyperLink(title, 'articles')}
+                className='flex flex-row'
+              >
+                <Img fixed={img} className='mr-24 w-[100px] shrink-0' />
+
+                <div id='article-properties' className='flex flex-col'>
+                  <H2 className='flex-1 font-bold text-grayish-blue'>{`0${
+                    index + 1
+                  }`}</H2>
+
+                  <H4 className='font-bold'>{title}</H4>
+                  <P className='text-dark-grayish-blue'>{shortDescription}</P>
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </main>
   );
 }
 
 export const Head: HeadFC = () => <title>Home Page</title>;
+
+export const pageQuery = graphql`
+  query MyQuery {
+    allFile(filter: { relativeDirectory: { eq: "articles" } }) {
+      nodes {
+        name
+        childrenImageSharp {
+          fixed(height: 129, width: 100) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  }
+`;

@@ -18,14 +18,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-postcss',
 
     'gatsby-plugin-image',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'src/images/icon.png',
-      },
-    },
-
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -35,6 +27,14 @@ const config: GatsbyConfig = {
         path: './src/assets/images/',
       },
       __key: 'images',
+    },
+
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png',
+      },
     },
   ],
 };

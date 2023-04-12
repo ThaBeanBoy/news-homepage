@@ -69,12 +69,12 @@ export default function IndexPage({ data }: any) {
   const images: any[] = data.allFile.nodes;
 
   return (
-    <>
+    <div className='flex flex-col items-center'>
       <div
         id='top'
-        className='mt-32 flex flex-col laptop:flex laptop:flex-row laptop:gap-32'
+        className='mt-32 flex flex-col items-center laptop:flex laptop:flex-row laptop:gap-32'
       >
-        <div id='main-article'>
+        <div id='main-article' className='flex flex-col items-center'>
           <StaticImage
             src='../assets/images/image-web-3-mobile.jpg'
             alt='web 3 article image'
@@ -86,7 +86,7 @@ export default function IndexPage({ data }: any) {
             className='hidden w-full sm:block'
           />
 
-          <div className='flex flex-col laptop:flex-row'>
+          <div className='flex max-w-[603px] flex-col laptop:max-w-none laptop:flex-row'>
             <H1 className='mt-32'>{mainArticle}</H1>
             <div
               id='right-side'
@@ -135,7 +135,10 @@ export default function IndexPage({ data }: any) {
         </div>
       </div>
 
-      <ul id='articles' className='my-64 w-full laptop:flex'>
+      <ul
+        id='articles'
+        className='my-64 w-full max-w-[603px] laptop:flex laptop:max-w-none'
+      >
         {articles.map(({ title, shortDescription, image }, index) => {
           const img = images.filter((img) => img.name === image?.src)[0]
             .childrenImageSharp[0].fixed;
@@ -161,7 +164,7 @@ export default function IndexPage({ data }: any) {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 

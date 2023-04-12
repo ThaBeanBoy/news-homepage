@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 type typeProps = {
-  children: string;
+  children: ReactNode;
   className?: string;
 };
 
 export function H1({ children, className }: typeProps): JSX.Element {
   return (
-    <h1 className={`text-[40px] font-extrabold leading-[40px] ${className}`}>
+    <h1
+      className={`text-[40px] font-extrabold leading-[40px] laptop:text-[56px] laptop:leading-[56px] ${className}`}
+    >
       {children}
     </h1>
   );
 }
 
 export function H2({ children, className }: typeProps): JSX.Element {
-  return <h2 className={`text-[32px] ${className}`}>{children}</h2>;
+  return (
+    <h2 className={`text-[32px] laptop:text-[40px] ${className}`}>
+      {children}
+    </h2>
+  );
 }
 
 export function H3({ children, className }: typeProps): JSX.Element {

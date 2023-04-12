@@ -49,6 +49,11 @@ module.exports = {
       96: '96px',
     },
 
+    screens: {
+      sm: '640px',
+      laptop: '1024px',
+    },
+
     extend: {},
   },
   plugins: [require('prettier-plugin-tailwindcss')],

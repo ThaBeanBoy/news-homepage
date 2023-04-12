@@ -69,41 +69,58 @@ export default function IndexPage({ data }: any) {
   const images: any[] = data.allFile.nodes;
 
   return (
-    <main className='bg-off-white'>
-      <div id='top' className='mt-32 flex flex-col'>
+    <>
+      <div
+        id='top'
+        className='mt-32 flex flex-col laptop:flex laptop:flex-row laptop:gap-32'
+      >
         <div id='main-article'>
           <StaticImage
             src='../assets/images/image-web-3-mobile.jpg'
             alt='web 3 article image'
-            className='w-full'
+            className='w-full max-w-[730px] sm:hidden'
           />
-          <H1 className='mt-32'>{mainArticle}</H1>
-          <div id='right-side'>
-            <P className='mt-28 text-dark-grayish-blue'>
-              We dive into the next evolution of the web that claims to put the
-              power of the platforms back into the hands of the people. But is
-              it really fulfilling its promise?
-            </P>
+          <StaticImage
+            src='../assets/images/image-web-3-desktop.jpg'
+            alt='web 3 article image'
+            className='hidden w-full sm:block'
+          />
 
-            <Link
-              to={createHyperLink(mainArticle, 'articles')}
-              className='mt-28 inline-block bg-soft-red px-32 py-16'
+          <div className='flex flex-col laptop:flex-row'>
+            <H1 className='mt-32'>{mainArticle}</H1>
+            <div
+              id='right-side'
+              className='laptop:mt-32 laptop:flex laptop:flex-col laptop:justify-between'
             >
-              <SM className='uppercase tracking-[4.5px] text-off-white'>
-                Read more
-              </SM>
-            </Link>
+              <P className='mt-28 text-dark-grayish-blue laptop:mt-0'>
+                We dive into the next evolution of the web that claims to put
+                the power of the platforms back into the hands of the people.
+                But is it really fulfilling its promise?
+              </P>
+
+              <Link
+                to={createHyperLink(mainArticle, 'articles')}
+                className='mt-28 inline-block w-full max-w-[200px] bg-soft-red px-32 py-16 laptop:mt-0'
+              >
+                <SM className='uppercase tracking-[4.5px] text-off-white'>
+                  Read more
+                </SM>
+              </Link>
+            </div>
           </div>
         </div>
 
         <div
           id='new-articles'
-          className='mt-64 bg-very-dark-blue p-28 text-off-white'
+          className='mt-64 max-w-[730px] bg-very-dark-blue p-28 text-off-white laptop:mt-0 laptop:w-[350px] laptop:shrink-0'
         >
           <H2 className='font-bold text-soft-orange'>New</H2>
           <ul className='mt-4'>
             {newArticles.map(({ title, shortDescription }, index) => (
-              <li className='group border-b-2 border-b-dark-grayish-blue last:border-b-0'>
+              <li
+                className='group border-b-2 border-b-dark-grayish-blue last:border-b-0'
+                key={index}
+              >
                 <Link
                   to={createHyperLink(title, 'articles')}
                   key={index}
@@ -118,7 +135,7 @@ export default function IndexPage({ data }: any) {
         </div>
       </div>
 
-      <ul id='articles' className='my-64 w-full'>
+      <ul id='articles' className='my-64 w-full laptop:flex'>
         {articles.map(({ title, shortDescription, image }, index) => {
           const img = images.filter((img) => img.name === image?.src)[0]
             .childrenImageSharp[0].fixed;
@@ -144,7 +161,7 @@ export default function IndexPage({ data }: any) {
           );
         })}
       </ul>
-    </main>
+    </>
   );
 }
 

@@ -26,11 +26,11 @@ export default function Layout({ children }: layoutProps) {
     'important semi-bold text-lg-1  capitalize hover:text-soft-red';
 
   return (
-    <div id='wrapper' className='z-50 min-h-screen w-screen bg-off-white'>
+    <div id='wrapper' className='min-h-screen w-screen bg-off-white'>
       {mobileNavOpen && (
         <div
           id='mobile-nav-wrapper'
-          className='fixed top-0 z-[10] h-screen w-screen bg-dark-grayish-blue bg-opacity-70'
+          className='fixed top-0 z-50 h-screen w-screen bg-dark-grayish-blue bg-opacity-70'
         >
           <div
             id='mobile-nav'
@@ -51,6 +51,7 @@ export default function Layout({ children }: layoutProps) {
                   to={link}
                   key={index}
                   className={`${navLinksStyles} mb-32 last:mb-0`}
+                  onClick={closeMenu}
                 >
                   {title}
                 </Link>
@@ -69,11 +70,11 @@ export default function Layout({ children }: layoutProps) {
           <img
             src='/icon-menu.svg'
             alt='menu'
-            className='cursor-pointer header:hidden'
+            className='cursor-pointer sm:hidden'
             onClick={openMenu}
           />
 
-          <nav className='hidden header:block'>
+          <nav className='hidden sm:block'>
             {navLinks.map(({ title, link }, index) => (
               <Link
                 to={link}
@@ -86,7 +87,7 @@ export default function Layout({ children }: layoutProps) {
           </nav>
         </header>
 
-        {children}
+        <main className='min-h-screen bg-off-white'>{children}</main>
 
         <footer>footer</footer>
       </div>
